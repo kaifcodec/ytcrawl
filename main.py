@@ -37,7 +37,13 @@ class YTScraper:
                 break
 
             for c in comments:
+                reply_count, likes = c['replyCount'], c['likes']
                 print(f"[{c['type']}] {c['author']}: {c['text']}")
+
+                if reply_count:
+                    print(f"     └── Reply count(s): {reply_count}")
+                if likes:
+                    print(f"     └── Like count(s): {likes}\n")
 
             if not token:
                 print("\nEnd of thread")

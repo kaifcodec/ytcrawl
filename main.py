@@ -37,10 +37,10 @@ class YTScraper:
                 break
 
             for c in comments:
-                print(f"[{c['type']}] {c['author']}: {c['text'][:60]}...")
+                print(f"[{c['type']}] {c['author']}: {c['text']}")
 
             if not token:
-                print("End of thread")
+                print("\nEnd of thread")
                 break
 
             time.sleep(0.5)

@@ -1,6 +1,11 @@
 # YTCrawl
 A lightweight CLI tool to extract YouTube comment data without the overhead. Built for speed, complex pattern recognition.
 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/43b50e12-9952-468e-bbbb-5e594cdae001" width="900" height="420" alt="kaifcodec's ytcrawl repository banner"/>
+</div>
+
+
 ## Features
 
 - Fetch paginated comments from a YouTube video

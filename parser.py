@@ -32,6 +32,10 @@ class CommentParser:
 
         for renderer in cls.find_key(data, "commentRenderer"):
             author = cls.extract_text(renderer.get("authorText", {}))
+
+            thumbs = renderer.get("authorThumbnail", {}).get("thumbnails", [])
+            pfp = max(thumbs, key=lambda x: x.get("width", 0)).get("url") if thumbs else ""
+
             text = cls.extract_text(renderer.get("contentText", {}))
             reply_count = cls.extract_text(renderer.get("replyCount", {}))
             likes = cls.extract_text(renderer.get("voteCount", {}))
@@ -39,10 +43,11 @@ class CommentParser:
             if text:
                 comments.append({
                     "type": "standard",
-                    "author": author,
-                    "text": text,
-                    "replyCount": reply_count,
-                    "likes": likes
+                    "author": author or "",
+                    "text": text or "",
+                    "replyCount": reply_count or "",
+                    "likes": likes or "",
+                    "pfp_url" : pfp or "",
                 })
 
         if not comments:
